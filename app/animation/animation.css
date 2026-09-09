@@ -1,0 +1,191 @@
+.dona-animation {
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #a9d9f0;
+}
+
+.wardrobe-svg {
+  width: min(92vw, 720px);
+  height: 92vh;
+}
+
+/* STYLE */
+
+.line,
+.inside,
+.door-line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.inside {
+  opacity: 0.95;
+}
+
+.handle {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3.5;
+}
+
+.clothes-bar {
+  stroke: #ffffff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.hanger {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* PORTES */
+
+.door {
+  transform-box: fill-box;
+}
+
+.door-left {
+  transform-origin: left center;
+  animation: leftDoor 1.5s cubic-bezier(.25,.8,.25,1) forwards;
+  animation-delay: 1.2s;
+}
+
+.door-right {
+  transform-origin: right center;
+  animation: rightDoor 1.5s cubic-bezier(.25,.8,.25,1) forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes leftDoor {
+  from {
+    transform: perspective(500px) rotateY(0deg);
+  }
+
+  to {
+    transform: perspective(500px) rotateY(-65deg);
+  }
+}
+
+@keyframes rightDoor {
+  from {
+    transform: perspective(500px) rotateY(0deg);
+  }
+
+  to {
+    transform: perspective(500px) rotateY(65deg);
+  }
+}
+
+/* CINTRES */
+
+.hangers {
+  opacity: 0;
+  animation: hangersAppear 0.8s ease forwards;
+  animation-delay: 2.2s;
+}
+
+@keyframes hangersAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LOGO */
+
+.logo {
+  opacity: 0;
+  transform-origin: center;
+  animation:
+    logoAppear 1s ease forwards,
+    logoFloat 2s ease-in-out infinite;
+  animation-delay: 2.7s, 3.8s;
+}
+
+.logo-line {
+  fill: none;
+  stroke: #354f5d;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dona-text {
+  fill: #354f5d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+.sparkle {
+  stroke: #ffffff;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* CŒUR */
+
+.heart {
+  fill: #f59ab5;
+  stroke: #ffffff;
+  stroke-width: 2;
+  opacity: 0;
+
+  animation: heartAppear .8s ease forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes heartAppear {
+  from {
+    opacity: 0;
+    transform: scale(.4);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
